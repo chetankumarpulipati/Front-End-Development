@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        h1,h2,p{
+            text-align: center;
+            color: aliceblue;
+        }
+        h1,p{
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-top: 0;
+        }
+        body{
+            background-color: #028398;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: auto;
+            margin: 0px 0px 0px 0px;
+        }
+        .container img{
+            width: 30px;
+            border-radius: 3.5px;
+            background-color: rgb(255, 255, 255);
+            border-style: none;
+        }
+        .form_class{
+            display: block;
+            padding: 100px;
+            align-items: center;
+            justify-items: center;
+            background-color: #ededed;
+            margin: 0 200px 30px 200px;
+            height: auto;
+        }
+        input[type="text"],input[type="email"],input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #4CAF50;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+        input[type="text"],input[type="email"],input[type="password"]:hover{
+            border-color: #028398;
+        }
+        input[type="text"],input[type="email"],input[type="password"]:focus{
+            border-color: green;
+        }
+        select {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #4CAF50;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+        .custom-select select:focus {
+            border-color: #4CAF50;
+        }
+        .role{
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        .line-with-text {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .line-with-text::before,
+        .line-with-text::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid black;
+        }
+        
+        .line-with-text:not(:empty)::before {
+            margin-right: 0.5em;
+        }
+        .line-with-text:not(:empty)::after {
+            margin-left: 0.5em;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        input[type="button"] {
+            margin-top: 15px;
+            background-color: rgb(67, 67, 255);
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 500px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+        input[type="button"]:hover {
+            background-color: rgb(45, 45, 200);
+        }
+        button{
+            margin-top: 15px;
+            background-color: rgb(67, 67, 255);
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 500px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .margin-space{
+            margin-top: 20px;
+            text-align: center;
+        }
+        p{
+            text-align: center;
+            color: rgb(255, 255, 255);
+            text-align: center;
+        }
+        #password-strength {
+            display: none;
+            font-weight: bold;
+        }
+        .very-weak {
+            color: red;
+        }
+        .weak {
+            color: orange;
+        }
+        .medium {
+            color: yellow;
+        }
+        .strong {
+            color: green;
+        }
+        .very-strong {
+            color: darkgreen;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const roles = document.getElementsByName('role');
+            var userChoice;
+            roles.forEach(role => {
+                role.addEventListener('click', () => {
+                    userChoice = role.id;
+                    console.log(`User choice is ${userChoice}`);
+                    document.getElementById('gpa').style.display = userChoice === 'student' ? 'block' : userChoice === 'faculty' ? 'none' : 'none';
+                    document.querySelector('label[for="gpa"]').style.display = userChoice === 'student' ? 'block' : userChoice === 'faculty' ? 'none' : 'none';
+                    document.getElementById('skills').style.display = userChoice === 'faculty' ? 'block' : 'none';
+                    document.querySelector('label[for="skills"]').style.display = userChoice === 'faculty' ? 'block' : 'none';
+                });
+            });
+            const passwordInput = document.getElementById('password');
+            const strengthLabel = document.querySelector('label[for="password-strength"]');
+            passwordInput.addEventListener('input', updatePasswordStrength);
+            
+            function updatePasswordStrength() {
+                
+                const password = passwordInput.value;
+                if (password === '') {
+                    strengthLabel.style.display = 'none'; 
+                    return;
+                }
+                strengthLabel.style.display = 'block';  
+                let strength = 0;
+                if (password.length >= 8) strength += 1;
+                
+                if (/[a-z]/.test(password)) strength += 1;
+                
+                if (/[A-Z]/.test(password)) strength += 1;
+                
+                if (/[0-9]/.test(password)) strength += 1;
+                
+                if (/[!@#$%^&*()_+\-=\]{};':"\\|,.<>?]/.test(password)) strength += 1;
+                
+                let strengthText;
+                let strengthClass;
+                switch (strength) {
+                    case 0:
+                    case 1:
+                    strengthText = 'Very Weak';
+                    strengthClass = 'very-weak';
+                    break;
+                    case 2:
+                    strengthText = 'Weak';
+                    strengthClass = 'weak';
+                    break;
+                    case 3:
+                    strengthText = 'Medium';
+                    strengthClass = 'medium';
+                    break;
+                    case 4:
+                    strengthText = 'Strong';
+                    strengthClass = 'strong';
+                    break;
+                    case 5:
+                    strengthText = 'Very Strong';
+                    strengthClass = 'very-strong';
+                    break;
+                }
+                strengthLabel.innerHTML = `Status: ${strengthText}`;
+                strengthLabel.className = strengthClass;
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Social Media Registration Form</h1>
+    <div class="container">
+        <h2>Linked</h2>
+        &nbsp;
+        <img src="images/logo.jpg" alt="In" style="background-color: rgb(255, 255, 255);" >  
+    </div>
+    <p><b>Make the most of your professional life</b></p>
+    <div class="form_class">
+        <form action="register.html">
+            <label for="firstname">First Name</label>
+            <input type="text" name="firstname" id="firstname" required>
+            <label for="lastname">Last Name</label>
+            <input type="text" name="firstname" id="lastnamename" required>
+            <label for="age">Age</label>
+            <input type="text" name="age" id="age">
+            <label for="University/College">University / College</label>
+            <div class="custom-select">
+                <select name="University/College" id="University/College">
+                    <option value=""></option>
+                    <option value="abc">ABC</option>
+                    <option value="cdb">CDB</option>
+                    <option value="xyz">XYZ</option>
+                </select>
+            </div>
+            <label for="degree/course">Degree / Course</label>
+            <div class="custom-select">
+                <select name="degree/course" id="degree/course" required>
+                    <option value=""></option>
+                    <option value="b.tech">B. Tech</option>
+                    <option value="m.tech">M. Tech</option>
+                    <option value="mba">MBA</option>
+                </select>
+            </div>
+            Select Role
+            <div class="role">
+                <input type="radio" name="role" id="student">
+                <label for="student">Student</label>
+                <input type="radio" name="role" id="faculty">
+                <label for="faculty">Faculty</label>
+                <input type="radio" name="role" id="employee">
+                <label for="employee">Employee</label>
+            </div>
+            <label for="gpa">CGPA / %</label>
+            <input type="text" name="gpa" id="gpa">
+            <label for="experience">Experience</label>
+            <div class="custom-select">
+                <select name="experience" id="experience">
+                    <option value=""></option>
+                    <option value="level-0">0-1 years</option>
+                    <option value="level-1">1-5 years</option>
+                    <option value="level-2">5-10 years</option>
+                    <option value="level-3">10+ years</option>
+                </select>
+            </div>
+            <label for="skills">Skills</label>
+            <div class="custom-select">
+                <select name="skills" id="skills">
+                    <option value="" id=""></option>
+                    <option value="C" id="c">C</option>
+                    <option value="Java">Java</option>
+                    <option value="Python">Python</option>
+                    <option value="C#">C#</option>
+                </select>
+            </div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+            <label for="password">Password (6 or more characters)</label>
+            <label for="password-strength" style="display: none;"></label>
+            <input type="password" name="password" id="password" required>
+            <p style="color: black;">You agree to the LinkedIn <b>User Agreement , Privacy Policy</b> and <b>Cookie Policy.</b></p>
+            <div class="button-container">
+                <input type="button" name="join" id="join" value="Agree & join">
+            </div>
+            <div class="line-with-text">or</div>
+            <div class="button-container">
+                <button>
+                    <i class="fab fa-facebook-f"></i>
+                    Continue with Facebook
+                </button>
+            </div>
+            <div class="margin-space">
+                <b>Already on LinkedIn? </b> <a href="#">Sign in</a> 
+            </div>
+        </form>
+    </div>
+    <p>LinkedIn Corporation copyright 2024</p>
+</body>
+</html>
