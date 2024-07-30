@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naukri</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: large;
+            display: block;
+            margin: 0;
+            background-color: rgb(209, 209, 209);
+        }
+        .container {
+            border: 1px solid rgb(75, 69, 69);
+            border-radius: 10px;
+            padding: 50px;
+            height: auto;
+            width: 1000px;
+            display: flex;
+            flex-direction: column;
+            margin: 0px 100px 100px 100px;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        .form-group label {
+            text-align: right;
+            margin-right: 20px;
+            width: 150px;
+        }
+        .form-group label span {
+            color: red;
+        }
+        input[type="text"] {
+            border-radius: 3px;
+            height: 30px;
+            width: 350px;
+            border-color: grey;
+        }
+        input[type="text"]:focus {
+            border-color: red;
+        }
+        .select-boxes{
+            height: 30px;
+            width: 128px;
+        }
+        section {
+            max-width: 800px;
+            position: relative;
+            margin: 0 auto; 
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+        section img{
+            width: 100px;
+            margin-top: 30px;
+            border-radius: 10px;
+            border: 1px solid rgb(255, 161, 161);
+        }
+        .select-boxess{
+            height: 30px;
+            width: 355px;
+        }
+        .jobs-type{
+            background-color: aqua;
+            width: 355px;
+            height: 30px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-between; 
+            padding: 10px;
+        }
+        
+        .label{
+            width: 33.33%; /* Divide into three equal sections */
+            text-align: center; /* Center the text */
+        }
+        .jobs-type::before, .jobs-type::after {
+            content: "";
+            position: absolute;
+            height: auto;
+            width: 2px;
+            background-color: black;
+        }
+        .sort-type{
+            background-color: aqua;
+            width: 150px;
+            height: 30px;
+            padding: 10px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+    <script>
+        function redirect_page(pageUrl) {
+            window.location.href = pageUrl;
+        }
+    </script>
+</head>
+<body>
+    <section>
+        <img src="images/naukri_logo.png" alt="naukri_logo">
+        <h1>Job Search Form</h1>
+        <h2>Naukri</h2>
+    </section>
+    <div class="container">
+        <div class="form-group">
+            <label for="fname">Key Skills</label>
+            <input placeholder="Skills, Designation, Companies" type="text" name="fname" id="fname">
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input placeholder="Enter the cities you want to work in" type="text" name="location" id="location">
+        </div>
+        <div class="form-group">
+            <label for="work_experience">Work Experience</label>
+            <select class="select-boxes" name="years" id="years">
+                <option value="Select">Select</option>
+            </select>&nbsp;Years&nbsp;
+            <select class="select-boxes" name="month" id="month">
+                <option value="">Select</option>
+            </select>&nbsp;Month
+        </div>
+        <div class="form-group">
+            <label for="expected-salary">Expected Salary</label>
+            <select class="select-boxes" name="Salary" id="Salary">
+                <option value="Salary">Min</option> 
+            </select>&nbsp;in Lakhs
+        </div>
+        <div class="form-group">
+            <label for="industry">Industry</label>
+            <select class="select-boxess" name="industry" id="industry">
+                <option value="Industry">Select the industry where you want to work</option>    
+            </select>
+        </div>
+        <div style="text-align: left; margin-left: 200px; color: blue;">
+            you can select at max 2 industries
+        </div>
+        &nbsp;
+        <div class="form-group">
+            <label for="job-category">Job Category</label>
+            <select class="select-boxess" name="job-category" id="job-category">
+                <option value="job">Select your areas of expertise</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="job_type">Job Type</label>
+            <div class="jobs-type">
+                <div class="label">All Jobs</div>
+                <div class="label">Company Jobs</div>
+                <div class="label">Consultant Jobs</div>
+            </div>
+        </div>
+        <div class="form-group"> 
+            <label for="sort-by">Sort By</label>
+            <div class="sort-type">
+                <div class="label">Relevance</div>
+                <div class="label">Date</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button onclick="redirect_page('redirect files/jobs-search.html')">Search</button>
+        </div>
+    </div>
+</body>
+</html>
