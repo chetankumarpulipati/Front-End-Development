@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deactivation</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .header h2 {
+            margin: 0;
+            font-weight: 300;
+        }
+        
+        .header p {
+            margin: 0;
+            font-size: 14px;
+            color: #ccc;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .form-group input[type="password"],input[type="email"] {
+            width: 380px;
+            height: 40px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        .form-group i {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: #ccc;
+        }
+        
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        
+        #message {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .footer {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+            color: #ccc;
+        }
+        
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: #0056b3;
+        }
+        
+        .form-group input[type="password"]{
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input[type="password"]:focus {
+            border-color: #007bff;
+        }
+        
+        button[type="submit"] {
+            transition: background-color 0.3s ease;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        #deactivate-btn {
+            background-color: #4CAF50; 
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 95%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Social Media App</h1>
+    <div class="container">
+        <div class="header">
+            <h2>Account Deactivation</h2>
+            <p>Confirm your account deactivation</p>
+        </div>
+        <form id="deactivation-form">
+            <br>
+            <div class="form-group">
+                <label for="email/username">Email / Username</label>
+                <input type="email" name="email/username" id="email/username" placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Enter your password to confirm:</label>
+                <input type="password" id="password" name="password" placeholder="••••••••">
+                <i class="fas fa-lock"></i>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Re-enter your password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••">
+                <i class="fas fa-lock"></i>
+            </div>
+            <button id="deactivate-btn">Confirm</button>
+            <p id="message"></p>
+        </form>
+        <br>
+        <br>    
+        <div class="footer">
+            <p>Need help? <a href="#">Contact Support</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Reviews</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f7f7f7;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ffcc00;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .review-form {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 600px;
+        }
+        
+        .review-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .review-form input, .review-form select, .review-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .review-form input[type="submit"] {
+            background-color: #ffcc00;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .review-form input[type="submit"]:hover {
+            background-color: #ffc107;
+        }
+        
+        .reviews {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        
+        .review {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .review h3 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+        
+        .review p {
+            margin-bottom: 10px;
+        }
+        
+        .rating {
+            color: #ffcc00;
+            font-size: 18px;
+        }
+        
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            clear: both;
+            border-top: 2px solid #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Movie Reviews</h1>
+    </header>
+    <main>
+        <section class="review-form">
+            <h2>Write a Review</h2>
+            <form>
+                <label for="movie-name">Movie Name:</label>
+                <input type="text" id="movie-name" name="movie-name"><br><br>
+                <label for="rating">Rating (1-5):</label>
+                <select id="rating" name="rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select><br><br>
+                <label for="review">Review:</label>
+                <textarea id="review" name="review"></textarea><br><br>
+                <input type="submit" value="Submit Review">
+            </form>
+        </section>
+        <section class="reviews">
+            <h2>Reviews</h2>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Movie Reviews</p>
+    </footer>
+    
+    <script>
+        const form = document.querySelector('form');
+        const reviewsSection = document.querySelector('.reviews');
+        
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const movieName = document.getElementById('movie-name').value;
+            const rating = document.getElementById('rating').value;
+            const review = document.getElementById('review').value;
+            
+            const reviewElement = document.createElement('div');
+            reviewElement.classList.add('review');
+            reviewElement.innerHTML = `
+				<h3>${movieName}</h3>
+				<p>Rating: ${rating}/5</p>
+				<p>${review}</p>
+			`;
+            
+            reviewsSection.appendChild(reviewElement);
+            
+            document.getElementById('movie-name').value = '';
+            document.getElementById('rating').value = '1';
+            document.getElementById('review').value = '';
+        });
+    </script>
+</body>
+</html>
