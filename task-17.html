@@ -4,8 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Database</title>
+    <style>
+        body{
+            display: flex;
+            margin: 20px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        table{
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th,td{
+            text-align: center;
+            font-size: 18px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th{
+            background-color: #f0f0f0;
+        }
+        @media screen and (max-width: 600px) {
+            table{
+                width: 100%;
+            }
+            th,td{
+                font-size: 14px;
+                padding: 5px;
+            }
+        }
+        @media screen and (max-width: 400px) {
+            th,td{
+                font-size: 12px;
+                padding: 2px;
+            }
+        }
+    </style>
 </head>
 <body>
-    
-</body>
-</html>
+    <table>
+        <tr>
+            <th>Sl. No</th>
+            <th>Movie Name</th>
+            <th>Director</th>
+            <th>Cast</th>
+            <th>Poster</th>
+            <th>Trailer</th>
+        </tr>
+        <tr>
+            <td>1.</td>
+            <td>Pathaan</td>
+            <td>Siddharth Anand</td>
+            <td>Shah Rukh Khan, Deepika Padukone, John Abraham</td>
+            <td><img src="images/pathaan.jpg" alt="Poster" width="100"></td>
+            <td><iframe width="300" height="300" src="https://www.youtube.com/embed/vqu4z34wENw?si=sdIpzlfTp0kRomq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+        </tr>
+        <tr>
+            <td>2.</td>
+            <td>KGF</td>
+            <td>Prashanth Neel</td>
+            <td>Yash, Srinidhi Shetty, Anant Nag</td>
+            <td><img src="images/kgf.jpg" alt="Poster" width="100"></td>
+            <td><iframe width="300" height="300" src="https://www.youtube.com/embed/fnGW4iQzVLw?si=DeaT1Tkpo1j5xmPk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+        </tr>
+        <tr>
+            <td>3.</td>
+            <td>Bahubali</td>
+            <td>S.S. Rajamouli</td>
+            <td>Prabhas, Rana Daggubati, Anushka Shetty</td>
+            <td><img src="images/bahubali.jpg" alt="Poster" width="100"></td>
+            <td><iframe width="300" height="300" src="https://www.youtube.com/embed/sOEg_YZQsTI?si=CbbTzyM8sbdWnqOf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+        </tr>
+        <tr>
+            <td>4.</td>
+            <td>Arjun Reddy</td>
+            <td>Sandeep Reddy Vanga</td>
+            <td>Vijay Deverakonda, Shalini Pandey, Rahul Ramakrishna</td>
+            <td><img src="images/arjun-reddy.png" alt="Poster" width="100"></td>
+            <td><iframe width="300" height="300" src="https://www.youtube.com/embed/aozErj9NqeE?si=VutGYQ1KmYou6hUq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+        </tr>
+        <tr>
+            <td>5.</td>
+            <td>Pushpa</td>
+            <td>Sukumar</td>
+            <td>Allu Arjun, Rashmika Mandanna, Fahadh Faasil</td>
+            <td><img src="images/pushpa.jpeg" alt="Poster" width="100"></td>
+            <td><iframe width="300" height="300" src="https://www.youtube.com/embed/Q1NKMPhP8PY?si=R_6P1zZ_OvFBwm3T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+        </tr>
+        <tr>
+            <td>6.</td>
+            <td>Ala Vaikuntapuramuloo</td>
+            <td>Trivikram Srinivas</td>
+            <td>Allu Arjun, Pooja Hegde, Tabu</td>
+            <td><img src="images/ala-vaikuntapuramu.jpeg" alt="Poster" width="100"></td>
+            <td><iframe width="300" height="300" src="https://www.youtube.com/embed/SkENAjfVoNI?si=04Q1u9ZAtRkcSutt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+            <tr>
+                <td>7.</td>
+                <td>Karthikeya 2</td>
+                <td>Chandoo Mondeti</td>
+                <td>Nikhil Siddharth, Anupama Parameswaran, Anupam Kher</td>
+                <td><img src="images/karthikeya2.jpeg" alt="Poster" width="100"></td>
+                <td><iframe width="300" height="300" src="https://www.youtube.com/embed/d5s_IGuOJEc?si=4kUtnyk-N7m1p6i0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+            </tr>
+            <tr>
+                <td>8.</td>
+                <td>Oppenheimer</td>
+                <td>Christopher Nolan</td>
+                <td>Cillian Murphy, Emily Blunt, Matt Damon</td>
+                <td><img src="images/oppenheimer.jpg" alt="Poster" width="100"></td>
+                <td><iframe width="300" height="300" src="https://www.youtube.com/embed/ozHZDJ9uMHs?si=VQhzhlcunm2rXiJE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+            </tr>
+            <tr>
+                <td>9.</td>
+                <td>Original Gangsters</td>
+                <td>Lars Jacobson</td>
+                <td>TBA</td>
+                <td><img src="images/og.jpg" alt="Poster" width="100"></td>
+                <td><iframe width="300" height="300" src="https://www.youtube.com/embed/ePOglweqy7o?si=bVuYGh-0HJTE9Rjd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+            </tr>
+            <tr>
+                <td>10.</td>
+                <td>Animal</td>
+                <td>Sandeep Reddy Vanga</td>
+                <td>Ranbir Kapoor, Anil Kapoor, Bobby Deol</td>
+                <td><img src="images/animal.jpg" alt="Poster" width="100"></td>
+                <td><iframe width="300" height="300" src="https://www.youtube.com/embed/OM6Sgf-Q4Ow?si=DGFSpx1-LmZtys3O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+            </tr>
+        </table>
+    </body>
+    </html>
