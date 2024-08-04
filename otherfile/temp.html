@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frames</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="200px" height="200px" style="border:1px solid #000000;">
+    </canvas>
+    <iframe src="task-10.html" frameborder="0"></iframe>
+    <iframe src="task-11.html" frameborder="0"></iframe>
+    <audio src="otherfile/example_audio.mp3" controls></audio>
+    <video src="otherfile/example_video.mp4 controls"></video>
+    <object data="otherfile/example_audio.mp3"></object>
+    <object data="otherfile/example_video.mp4"></object>
+    <!-- <object data="otherfile/task-12.php"></object> -->
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "red";
+        ctx.fillRect(10, 10, 50, 50);
+    </script>
+</body>
+</html>
