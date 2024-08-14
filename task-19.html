@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chetan Kumar Pulipati</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: rgb(196, 196, 196);
+            margin: 0px;
+        }
+        
+        h1, h2 {
+            color: rgb(255, 255, 255);
+            margin-left: 15px;
+            font-style: italic;
+        }
+        
+        .nav-bar {
+            display: flex;
+            background-color: rgb(0, 0, 0);
+            width: 100%;
+            height: 50px;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed; 
+            top: 0;
+            left: 0;
+            z-index: 10; 
+        }
+        
+        .nav-elements {
+            float: right;
+            align-items: center;
+            text-align: center;
+            margin-right: 10px;
+        }
+        
+        .nav-elements a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .nav-elements a:hover {
+            color: red;
+        }
+        
+        .container {
+            display: flex;
+            margin: 20px;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 80px; 
+        }
+        
+        .text {
+            line-height: 40px;
+            width: 45%;
+            text-align: left;
+        }
+        
+        .profile {
+            align-items: center;
+        }
+        
+        .profile img {
+            padding: 20px;
+            align-items: center;
+            height: 300px;
+            width: 350px;
+            border-radius: 10px;
+        }
+        
+        .about, 
+        .projects { 
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            padding-top: 80px;
+        }
+        
+        section {
+            display: inline-block;
+            background-color: white;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            margin: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .img-class img {
+            border-radius: 10px;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .contact-info {
+            text-align: center; 
+        }
+        
+        .contact-info a {
+            display: block;      
+            margin-bottom: 10px; 
+            color: blue;        
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        #contact {
+            text-align: center; 
+            display: flex;
+            justify-content: center;
+            align-items: center;    
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <h1>My Portfolio</h1>
+        <div class="nav-elements">
+            <a href="#home">Home</a>
+            <a href="#about">Skills</a>
+            <a href="#projects">Projects</a>    
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+    
+    <div class="container" id="home">
+        <div class="text">
+            <h2>Hi! My name is Chetan Kumar Pulipati</h2>
+            <p>I am a passionate Data Science Student. I am studying B. Tech at Mohan Babu University in Data Science. I am interested in Web Development, Android App Development and Data Science Projects. 
+                I am a Python Developer, from Tirupati. My inspirations are Dr. APJ Abdul Kalam and Elon Musk. 
+            </p>
+        </div>
+        <div class="profile">
+            <img src="tiger.jpg" alt="my-profile">
+        </div>
+    </div>
+    
+    <div class="about" id="about">
+        <h2>Skills</h2>
+        <p>Tech Stack:</p>
+        <p><b>Programming Languages:</b> Java, Python, R and Kotlin</p>
+        <p><b>Tools:</b>VS Code, Android Studio, Webstorm and Pycharm</p>
+    </div>
+    
+    <div class="projects" id="projects">
+        <h2>Projects</h2>
+        <p>My Projects include in Web Development, App Development and Data Science</p>
+        <section>
+            <div class="img-class"> 
+                <img src="data-science.jpeg" alt="data-science" > 
+                <p>E - commerce Product Recommendation System</p>
+            </div>
+        </section>
+        <section>
+            <div class="img-class"> 
+                <img src="android_icon.png" alt="android" > 
+                <p>Food Delivery App</p>
+            </div>
+        </section>
+        <section>
+            <div class="img-class"> 
+                <img src="web-dev.jpeg" alt="Web Development"> 
+                <p>Web Development Project</p>
+            </div>
+        </section>
+    </div>
+    <div id="contact">
+        <h2>Contact Me</h2> 
+        <div class="contact-info">
+            <a href="mailto:chetankumarpulipati4@gmail.com">chetankumarpulipati4@gmail.com</a>
+            <a href="tel:+919963813470">+919963813470</a>
+            <a href="https://github.com/ckmrp">github.com/ckmrp</a> 
+        </div>
+    </div>
+</body>
+</html>
