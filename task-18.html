@@ -3,9 +3,619 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SVEC Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #f2f2f2;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-left img {
+            max-height: 80px;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        nav li {
+            margin-right: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #007bff;
+        }
+        
+        .contact {
+            margin-left: 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            margin-right: 15px;
+        }
+        
+        .contact i {
+            margin-right: 5px;
+        }
+        
+        .social-icons {
+            margin-left: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 18px;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #007bff;
+        }
+        
+        /* Main Navigation Styles */
+        .main-nav {
+            background-color: #29303d;
+            padding: 10px 0;
+        }
+        
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex; /* Ensure horizontal layout */
+            justify-content: center; /* Center the navigation items */
+        }
+        
+        .main-nav li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        
+        .main-nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .main-nav a:hover {
+            background-color: #e74c3c;
+        }
+        
+        .home-icon {
+            background-color: #e74c3c;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+        
+        .home-icon i {
+            color: white;
+            margin-right: 5px;
+        }
+        
+        .consent-link,
+        .info-link {
+            color: #3498db;
+            text-decoration: underline;
+        }
+        
+        /* Image Slider Styles */
+        .slider-container {
+            width: 100%;
+            max-width: 1000px; /* Adjust as needed */
+            overflow: hidden;
+            margin: 50px auto;
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 400%; /* 4 images * 100% */
+        }
+        
+        .slider img {
+            width: 25%; /* Each image takes 25% of the container width */
+            height: auto; /* Maintain aspect ratio */
+        }
+        
+        /* Content Section Styles */
+        .content-wrapper { /* New container to wrap the message and notification sections */
+            display: flex;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+        
+        .message-box,
+        .notification-box {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Add space between boxes */
+            width: 45%; /* Adjust width as needed */
+        }
+        
+        .image-container {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .content {
+            padding: 20px;
+        }
+        
+        .message-title {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        
+        .read-more {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .notification-header {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        .notification-header i {
+            margin-right: 10px;
+        }
+        
+        .notification-list {
+            list-style: disc;
+            padding: 20px;
+            padding-left: 40px;
+        }
+        
+        .notification-list li {
+            margin-bottom: 10px;
+        }
+        
+        .notification-list a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .eminent-people {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            max-width: 1200px; /* Set a max-width for the section */
+            margin-left: auto;
+            margin-right: auto; /* Center the section */
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin: 0; /* Reset default heading margin */
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+        }
+        
+        .view-all {
+            text-decoration: none;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .people-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .person-card {
+            width: calc(25% - 20px); /* Four cards per row with spacing */
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .card-image {
+            position: relative;
+            height: 250px; /* Adjust image height here */
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease; /* Add a zoom effect */
+        }
+        
+        .card-image:hover img {
+            transform: scale(1.1);
+        }
+        
+        .graduation-info {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        
+        .card-content {
+            padding: 15px;
+        }
+        
+        .person-name {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .footer {
+            background-color: #29303d;
+            color: #fff;
+            padding: 30px 0;
+            clear: both; 
+            width: 100%; /* Set footer width to 100% */
+        }
+        
+        .footer .container { 
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .quick-links, 
+        .contact-us {
+            width: 30%; /* Adjust as needed */
+        }
+        
+        .quick-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .quick-links li {
+            margin-bottom: 10px;
+        }
+        
+        .quick-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .quick-links a:hover {
+            color: #e74c3c;
+        }
+        
+        .contact-us address {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .contact-info li {
+            margin-bottom: 10px;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
-    
-</body>
-</html>
+    <header>
+        <div class="container">
+            <div class="header-left">
+                <img src="images/svec.png" alt="logo">
+            </div>
+            <div class="header-right">
+                <nav>
+                    <ul>
+                        <li><a href="#">Site Search <i class="fa-solid fa-magnifying-glass"></i></a></li>
+                        <li><a href="#">A-Z Directory</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Alumni</a></li>
+                        <li><a href="#">Student/Parent NIVA Login</a></li>
+                        <li><a href="#">Academic Verification</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <div class="contact">
+                    <a href="tel:+91-877-2504888"><i class="fa-solid fa-phone"></i> +91-877-2504888</a>
+                    <a href="mailto:info@vidyanikethan.edu"><i class="fa-solid fa-envelope"></i> info@vidyanikethan.edu</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#" class="home-icon"><i class="fas fa-home"></i></a></li> 
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Admissions</a></li>
+            <li><a href="#">Academics</a></li>
+            <li><a href="#">Exams</a></li>
+            <li><a href="#">Research & Consultancy</a></li>
+            <li><a href="#">Innovation & Entrepreneurship</a></li>
+            <li><a href="#">Training & Placements</a></li>
+            <li><a href="#">Industry Relations</a></li>
+            <li><a href="#">Campus Life</a></li>
+        </ul>
+    </nav>
+    <div class="slider-container">
+        <div class="slider">
+            <img src="https://picsum.photos/600/400?random=1" alt="Image 1">
+            <img src="https://picsum.photos/600/400?random=2" alt="Image 2">
+            <img src="https://picsum.photos/600/400?random=3" alt="Image 3">
+            <img src="https://picsum.photos/600/400?random=4" alt="Image 4">
+        </div>
+        <div class="container">
+            <div class="message-box">
+                <div class="image-container">
+                    <img src="https://www.svec.education/wp-content/uploads/2020/02/dr-mohan-babu-chairman.jpg" alt="Chairman">
+                </div>
+                <div class="content">
+                    <h3 class="message-title">MESSAGE FROM CHAIRMAN</h3>
+                    <p>Sree Vidyanikethan Education Trust (SVET) was established in 1992, it has surpassed many a
+                        milestone. As an individual, I have the best memories and biggest learning experiences...</p>
+                        <button class="read-more">Read More</button>
+                    </div>
+                </div>
+                <div class="notification-box">
+                    <div class="notification-header">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Notifications</h3>
+                    </div>
+                    <ul class="notification-list">
+                        <li><a href="#">One Week National Level FDP on Amazon Web Services From 22nd to 27th
+                            August,2022 in associ...</a>
+                        </li>
+                        <li><a href="#">11th Graduation Day on 21.08.2022</a></li>
+                        <li><a href="#">SVEC has signed a MoU with M/S Samparkbindhu Solutions Private Limited, Bengaluru on
+                            21-12-...</a></li>
+                            <li><a href="#">An Online National Conference on Knowledge, Innovations and Technologies for
+                                Sustainability – 2...</a></li>
+                                <li><a href="#">Recruitment Notification and Application for the Post of Project Associate for AMT-DST
+                                    Funded P...</a></li>
+                                    <li><a href="#">Tender Notice for AICTE IDEA LAB</a></li>
+                                    <li><a href="#">Resume of Class work Off-Line</a></li>
+                                    <li><a href="#">Classwork and Sankranti Holidays</a></li>
+                                    <li><a href="#">A Three Day National Fest: “Geotechnical Fiesta – 2K21” during 18-12-2021 to 20-12-2021
+                                        under I...</a></li>
+                                        <li><a href="#">Academic Calendar 2021-22 for II B.Tech. I-Semester Lateral Entry</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <script>
+                                const slider = document.querySelector('.slider');
+                                let currentSlide = 0;
+                                const slideWidth = document.querySelector('.slider-container').offsetWidth; 
+                                
+                                setInterval(() => {
+                                    currentSlide = (currentSlide + 1) % 4;
+                                    slider.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+                                }, 4000); 
+                            </script>
+                            <section class="eminent-people">
+                                <div class="section-header">
+                                    <h2 class="section-title">
+                                        <i class="fas fa-calendar-alt"></i> EMINENT PEOPLE VISITED
+                                    </h2>
+                                    <a href="#" class="view-all">View All</a>
+                                </div>
+                                
+                                <div class="people-grid">
+                                    <div class="person-card">
+                                        <div class="card-image">
+                                            <img src="image1.jpg" alt="Person 1"> 
+                                            <div class="graduation-info">
+                                                <p>2nd GRADUATION DAY</p>
+                                                <p>On</p>
+                                                <p>October 30, 2013</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <p class="person-name">Dr. K. Kasturirangan, renowned Spa...</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="person-card">
+                                        <div class="card-image">
+                                            <img src="image2.jpg" alt="Person 2">
+                                            <div class="graduation-info">
+                                                <p>1st GRADUATION DAY</p>
+                                                <p>On</p>
+                                                <p>September 1, 2012</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <p class="person-name">Dr. Iqbal Singh, His Excellency Lt. G...</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="person-card">
+                                        <div class="card-image">
+                                            <img src="image3.jpg" alt="Person 3">
+                                            <div class="graduation-info">
+                                                <p>8th GRADUATION DAY</p>
+                                                <p>On</p>
+                                                <p>July 6, 2019</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <p class="person-name">Sri Vinod Kumar Duggal, IAS (Retd.) ...</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="person-card">
+                                        <div class="card-image">
+                                            <img src="image4.jpg" alt="Person 4">
+                                            <div class="graduation-info">
+                                                <p>7th GRADUATION DAY</p>
+                                                <p>On</p>
+                                                <p>July 15, 2018</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <p class="person-name">Hon'ble Justice Sri Jasti Chelames...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <footer class="footer">
+                                <div class="container">
+                                    <div class="quick-links">
+                                        <h3>Quick Links</h3>
+                                        <ul>
+                                            <li><a href="#">Admission - Indian Nationals</a></li>
+                                            <li><a href="#">Admission - Foreign Nationals</a></li>
+                                            <li><a href="#">Sports & Games</a></li>
+                                            <li><a href="#">Health & Wellness</a></li>
+                                            <li><a href="#">Annual Fests</a></li>
+                                            <li><a href="#">NSS</a></li>
+                                            <li><a href="#">MGNCRE</a></li>
+                                            <li><a href="#">Student Council</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li><a href="#">Fee Payment</a></li>
+                                            <li><a href="#">Library</a></li>
+                                            <li><a href="#">Facilities</a></li>
+                                            <li><a href="#">Dispensary</a></li>
+                                            <li><a href="#">APSSDC - SIEMENS -TSDI</a></li>
+                                            <li><a href="#">Central Fabrication Unit</a></li>
+                                            <li><a href="#">Skill Development Centers</a></li>
+                                            <li><a href="#">PMKVY</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li><a href="#">Anti-Ragging</a></li>
+                                            <li><a href="#">Policy Documents</a></li>
+                                            <li><a href="#">NAAC</a></li>
+                                            <li><a href="#">NBA</a></li>
+                                            <li><a href="#">NIRF</a></li>
+                                            <li><a href="#">IQAC</a></li>
+                                            <li><a href="#">TEQIP-II</a></li>
+                                            <li><a href="#">AICTE </a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="contact-us">
+                                        <h3>Contact Us</h3>
+                                        <address>
+                                            Sree Vidyanikethan Engineering College<br>
+                                            Sree Sainath Nagar,<br>
+                                            Tirupati,<br>
+                                            Chittoor (District),<br>
+                                            Andhra Pradesh - 517102. <br>
+                                            INDIA
+                                        </address>
+                                        
+                                        <ul class="contact-info">
+                                            <li><i class="fas fa-phone"></i> +91-877-2504888</li>
+                                            <li><i class="fa-solid fa-square-phone"></i> +91-916-0999977 </li>
+                                            <li><i class="fas fa-envelope"></i> <a href="mailto:svecp@vidyanikethan.edu">svecp@vidyanikethan.edu</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </footer>
+                        </body>
+                        </html>
