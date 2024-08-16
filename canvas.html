@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <canvas id="myCanvas" width="200" height="100"></canvas>
+    </div>
+    <div>
+        <canvas id="myCanvas1" width="200" height="100"></canvas>
+    </div>
+    <div>
+        <canvas id="myCanvas2" width="200" height="100"></canvas>
+    </div>
+    <canvas id="myCanvas3" width="200" height="100"></canvas>
+    <div>
+        <canvas id="myCanvas4" width="200" height="100"></canvas>
+    </div>
+    <script>
+        var c = document.getElementById('myCanvas');
+        var ctx = c.getContext('2d');
+        ctx.moveTo(0, 0)
+        ctx.lineTo(200, 100);
+        ctx.stroke();
+    </script>  
+    <script>
+        var c = document.getElementById("myCanvas1");
+        ctx.beginPath();
+        ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+        ctx.stroke();
+    </script>
+    <script>
+        var c = document.getElementById('myCanvas2');
+        ctx.font = "30px Arial";
+        ctx.fillText("Hello, World",10,50);
+    </script>
+    <script>
+        var c = document.getElementById("myCanvas3");
+        var ctx = c.getContext("2d");
+        ctx.font = "30px Arial";
+        ctx.strokeText("Hello World", 10, 50);
+    </script>
+    <script>
+        var c = document.getElementById("myCanvas4");
+        var ctx = c.getContext("2d");
+        var grd = ctx.createLinearGradient(0, 0, 200, 0);
+        grd.addColorStop(0, "red");
+        grd.addColorStop(1, "white");
+        ctx.fillStyle = grd;
+        ctx.fillRect(10, 10, 150, 80);
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Attributes</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: antiquewhite;
+        }
+        .container{
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid black;
+            border-radius: 10px;
+            background-color: rgb(236, 163, 163);
+            width: fit-content;
+            padding: 30px;
+        }
+        .container ul{
+            font-size: 25px;
+            list-style: none;
+            line-height: 50px;
+        }
+    </style>
+    
+    <script>
+        function info(element){
+            var name = element.getAttribute('data-name');
+            var category = element.getAttribute('data-category');
+            alert(name + ", " + category);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Details of my favourite persons</h1>
+        <ul>
+        <li onclick="info(this)" data-name="A P J Abdul Kalam" data-category="science">APJ AK</li>
+        <li onclick="info(this)" data-name="Elon Musk" data-category="science">EM</li>
+        <li onclick="info(this)" data-name="Pavan Kalyan" data-category="actor">PSPK</li>
+        <li onclick="info(this)" data-name="Prabhas" data-category="actor">PB</li>
+    </ul>
+    </div>
+    
+</body>
+</html>
