@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Management</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #1a202c;
+      color: #a0aec0;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      color: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid #2d3748;
+    }
+
+    th {
+      background-color: #1a202c;
+      color: #fff;
+    }
+
+    tr:nth-child(even) {
+      background-color: #1f2937;
+    }
+
+    img {
+      max-width: 100px;
+      height: auto;
+    }
+
+    .actions button {
+      background-color: transparent;
+      border: none;
+      padding: 5px 10px;
+      margin-right: 5px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .edit {
+      background-color: #4299e1;
+      color: #fff;
+    }
+
+    .delete {
+      background-color: #e53e3e;
+      color: #fff;
+    }
+
+    .search-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .search-container input[type="text"] {
+      padding: 8px;
+      border: 1px solid #4a5568;
+      border-radius: 4px;
+      background-color: #1a202c;
+      color: #a0aec0;
+    }
+
+    .breadcrumb {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .breadcrumb li {
+      display: inline;
+      color: #a0aec0;
+    }
+
+    .breadcrumb li:after {
+      content: ">";
+      padding: 0 5px;
+      color: #4a5568;
+    }
+
+    .breadcrumb li:last-child:after {
+      content: "";
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ul class="breadcrumb">
+      <li>YOU ARE HERE</li>
+      <li>App</li>
+      <li>Ecommerce</li>
+      <li>Management</li>
+    </ul>
+
+    <h1>Product - Management</h1>
+
+    <h2>List of Products</h2>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search">
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>IMAGE</th>
+          <th>TITLE</th>
+          <th>SUBTITLE</th>
+          <th>PRICE($)</th>
+          <th>RATING</th>
+          <th>API</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><img src="image1.jpg" alt="Product 1"></td>
+          <td>Trainers</td>
+          <td>Trainers in White</td>
+          <td>76</td>
+          <td>4.6 ★★★★☆</td>
+          <td class="actions">
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><img src="image2.jpg" alt="Product 2"></td>
+          <td>Boots</td>
+          <td>Trainers in Blue</td>
+          <td>45</td>
+          <td>4.6 ★★★★☆</td>
+          <td class="actions">
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><img src="image3.jpg" alt="Product 3"></td>
+          <td>Flat sandals</td>
+          <td>Trainers in White</td>
+          <td>55</td>
+          <td>4.6 ★★★★☆</td>
+          <td class="actions">
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+</body>
+</html>

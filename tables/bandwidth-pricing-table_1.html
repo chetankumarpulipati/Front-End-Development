@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pricing Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .pricing-table {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .pricing-plan {
+      width: 220px;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .pricing-plan h2 {
+      color: #fff;
+      background-color: #3498db;
+      padding: 10px;
+      margin: 0;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    .pricing-plan.hot h2 {
+      background-color: #e74c3c;
+    }
+
+    .pricing-plan.hot h2:before {
+      content: "Hot!";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #f0ad4e;
+      color: #fff;
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 5px;
+      transform: rotate(45deg);
+    }
+
+    .pricing-plan h3 {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .pricing-plan span {
+      font-size: 14px;
+      color: #999;
+    }
+
+    .pricing-plan ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    .pricing-plan li {
+      border-bottom: 1px solid #eee;
+      padding: 10px;
+    }
+
+    .pricing-plan li:last-child {
+      border-bottom: none;
+    }
+
+    .pricing-plan button {
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="pricing-table">
+      <div class="pricing-plan">
+        <h2>Starter</h2>
+        <h3>$10 <span>per month</span></h3>
+        <ul>
+          <li>Amount of space: 10GB</li>
+          <li>Bandwidth per month: 100GB</li>
+          <li>No. of e-mail accounts: 1</li>
+          <li>No. of MySql databases: 1</li>
+          <li>24h support: Yes</li>
+          <li>Support tickets per mo.: 1</li>
+        </ul>
+        <button>Sign up!</button>
+      </div>
+
+      <div class="pricing-plan">
+        <h2>Econo</h2>
+        <h3>$30 <span>per month</span></h3>
+        <ul>
+          <li>Amount of space: 30GB</li>
+          <li>Bandwidth per month: 200GB</li>
+          <li>No. of e-mail accounts: 10</li>
+          <li>No. of MySql databases: 10</li>
+          <li>24h support: Yes</li>
+          <li>Support tickets per mo.: 3</li>
+        </ul>
+        <button>Sign up!</button>
+      </div>
+
+      <div class="pricing-plan hot">
+        <h2>Standard</h2>
+        <h3>$59 <span>per month</span></h3>
+        <ul>
+          <li>Amount of space: 100GB</li>
+          <li>Bandwidth per month: 500GB</li>
+          <li>No. of e-mail accounts: 50</li>
+          <li>No. of MySql databases: 50</li>
+          <li>24h support: Yes</li>
+          <li>Support tickets per mo.: 5</li>
+        </ul>
+        <button>Sign up!</button>
+      </div>
+
+      <div class="pricing-plan hot">
+        <h2>Professional</h2>
+        <h3>$99 <span>per month</span></h3>
+        <ul>
+          <li>Amount of space: Unlimited</li>
+          <li>Bandwidth per month: 1000GB</li>
+          <li>No. of e-mail accounts: Unlimited</li>
+          <li>No. of MySql databases: Unlimited</li>
+          <li>24h support: Yes</li>
+          <li>Support tickets per mo.: 10</li>
+        </ul>
+        <button>Sign up!</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

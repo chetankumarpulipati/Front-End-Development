@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Table Design</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f0f0f0;
+      font-weight: bold;
+    }
+
+    .header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+    }
+
+    .filter-options {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .filter-options label {
+      margin-right: 10px;
+    }
+
+    .action-buttons button {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .pagination button {
+      background-color: #f0f0f0;
+      border: 1px solid #ddd;
+      padding: 5px 10px;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    .pagination button.active {
+      background-color: #007bff;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Data Table</h1>
+  </div>
+
+  <div class="filter-options">
+    <label for="search">Search:</label>
+    <input type="text" id="search" placeholder="Enter search term...">
+
+    <label for="sort">Sort by:</label>
+    <select id="sort">
+      <option value="name">Name</option>
+      <option value="email">Email</option>
+      <option value="date">Date</option>
+    </select>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Company</th>
+        <th>Contact</th>
+        <th>Address</th>
+        <th>Revenue</th>
+        <th>VAT</th>
+        <th>Total Price</th>
+        <th>Stat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>IBBP Apps</td>
+        <td>H&R Real I</td>
+        <td>Joshua O'T</td>
+        <td>276 Tremont Street, Boston, MA 021</td>
+        <td>$840,742</td>
+        <td>$12,834</td>
+        <td>$420,930</td>
+        <td>FIN</td>
+      </tr>
+      <tr>
+        <td>SRA - General Contacts</td>
+        <td>Great Wes</td>
+        <td>Eli Ahmad</td>
+        <td>1310 Mission Street San Francisco, C</td>
+        <td>$845,948</td>
+        <td>$83,932</td>
+        <td>$312,840</td>
+        <td>WIF</td>
+      </tr>
+      <tr>
+        <td>CCST</td>
+        <td>Fording Fi</td>
+        <td>Dennis Vill</td>
+        <td>San Diego, CA 92138-1796</td>
+        <td>$92,833</td>
+        <td>$4,983</td>
+        <td>$112,483</td>
+        <td>WIF</td>
+      </tr>
+      <tr>
+        <td>Accupure</td>
+        <td>CC Imperi</td>
+        <td>Carlos Ric</td>
+        <td>1219-1223 Vine Street Philadelphia, PA 191</td>
+        <td>$840,742</td>
+        <td>$12,834</td>
+        <td>$1,240.39</td>
+        <td>ETA</td>
+      </tr>
+      <tr>
+        <td>IBBP Apps</td>
+        <td>Atco Ltd.</td>
+        <td>Mary Hica</td>
+        <td>4933 W. Craig Rd. Suite 291 Las Vegas, NVE</td>
+        <td>$845,948</td>
+        <td>$83,932</td>
+        <td>$1,082.22</td>
+        <td>
+<td>FINISHED</td>
+</tr>
+</tbody>
+</table>
+
+<div class="pagination">
+<button class="active">1</button>
+<button>2</button>
+<button>3</button>
+<button>4</button>
+<button>5</button>
+</div>
+
+</body>
+</html>

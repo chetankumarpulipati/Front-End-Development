@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Table</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .pricing-table {
+      border-collapse: collapse;
+      width: 800px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .pricing-table th,
+    .pricing-table td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .pricing-table th {
+      background-color: #4CAF50; 
+      color: white;
+      font-weight: bold;
+    }
+
+    .pricing-table td:nth-child(1) { 
+      background-color: #e9f7ea; 
+      font-weight: bold;
+    }
+
+    .pricing-table tr:nth-child(even) {
+      background-color: #f2f2f2; 
+    }
+
+    .pricing-table .header {
+      background-color: #4CAF50; 
+      color: white;
+      font-weight: bold;
+    }
+
+    .pricing-table .price {
+      font-size: 2em;
+      color: #4CAF50; 
+      font-weight: bold;
+    }
+
+    .pricing-table .check {
+      color: #4CAF50; 
+      font-size: 2em;
+    }
+  </style>
+</head>
+<body>
+
+<table class="pricing-table">
+  <tr>
+    <th class="header"></th> 
+    <th class="header">Smart Starter</th>
+    <th class="header">Smart Medium</th>
+    <th class="header">Smart Business</th>
+    <th class="header">Smart Deluxe</th>
+  </tr>
+  <tr>
+    <td>Storage Space</td>
+    <td>512 MB</td>
+    <td>1 GB</td>
+    <td>2 GB</td>
+    <td>4 GB</td>
+  </tr>
+  <tr>
+    <td>Bandwidth</td>
+    <td>50 GB</td>
+    <td>100 GB</td>
+    <td>150 GB</td>
+    <td>Unlimited</td>
+  </tr>
+  <tr>
+    <td>MySQL Databases</td>
+    <td>Unlimited</td>
+    <td>Unlimited</td>
+    <td>Unlimited</td>
+    <td>Unlimited</td>
+  </tr>
+  <tr>
+    <td>Setup</td>
+    <td>19.90 $</td>
+    <td>12.90 $</td>
+    <td>free</td>
+    <td>free</td>
+  </tr>
+  <tr>
+    <td>PHP 5</td>
+    <td><span class="check">✔</span></td>
+    <td><span class="check">✔</span></td>
+    <td><span class="check">✔</span></td>
+    <td><span class="check">✔</span></td>
+  </tr>
+  <tr>
+    <td>Ruby on Rails</td>
+    <td><span class="check">✔</span></td>
+    <td><span class="check">✔</span></td>
+    <td><span class="check">✔</span></td>
+    <td><span class="check">✔</span></td>
+  </tr>
+  <tr>
+    <td>Price per month</td>
+    <td class="price">$ 2.90</td>
+    <td class="price">$ 5.90</td>
+    <td class="price">$ 9.90</td>
+    <td class="price">$ 14.90</td>
+  </tr>
+</table>
+
+</body>
+</html>
