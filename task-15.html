@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Timetable</title>
+    <style>
+        body{
+            display: block;
+            align-items: center;
+            margin: 20px;
+            justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        img{
+            width: 150px;
+            height: 100px;
+            padding-right: 20px;
+            margin-top: 0px;
+        }
+        .header{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        .header h4{
+            margin-top: 7px;
+        }
+        .header h1{
+            margin-top: 8px;
+            margin-bottom: 0px;
+            font-weight: bold;
+            color: red;
+        }
+        .sub-head{
+            text-align: center;
+        }
+        h3{
+            margin-top: 0px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .time-table{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .top-table{ 
+            display: flex;
+            margin-left: 35px;
+            margin-right: 35px;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+            text-align: center;
+        }
+        tr,td{
+            text-align: center;
+        }
+        .bold-class{
+            font-weight: bold;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="images/mbu_logo.png" alt="logo">
+        <span>
+            <h1>MOHAN BABU UNIVERSITY</h1>
+            <h4>Sree Sainath Nagar, A. Rangampet - 517102</h4>
+            <h2>SCHOOL OF COMPUTING</h2>
+            <h3><u>DEPARTMENT OF DATA SCIENCE</u></h3>
+            <h3><u>CLASS WORK TIME TABLE (2024-25)</u></h3>
+            <h3>V Semester (Batch-2) (DS-4)</h3>
+        </span>
+    </div>
+    
+    <div class="top-table">
+        <p><b>Room No.: 704</b></p>
+        <p><b>W.E.F.: 15.07.2024</b></p>
+    </div>
+    <div class="time-table">
+        <table>
+            <tr class="bold-class">
+                <td>DAY<br>/HR</td>
+                <td>10:00 AM <br> To <br> 11:00 AM</td>
+                <td>
+                    11:00 AM <br> TO <br> 12:00 PM
+                </td>
+                <td rowspan="6" class="bold-class">L<br>U<br>N<br>C<br>H<br><br>B<br>R<br>E<br>A<br>K</td>
+                <td>1:15 PM <br> TO <br> 2:15 PM</td>
+                <td>2:15 PM <br> TO <br> 3:15 PM</td>
+                <td rowspan="6" class="bold-class">B<br>R<br>E<br>A<br>K</td>
+                <td>3:45 PM <br> TO <br> 4:45 PM</td>
+                <td>4:45 PM <br> TO <br> 5:45 PM</td>
+            </tr>
+            <tr>
+                <td class="bold-class">MON</td>
+                <td>EMSME <br> (MOOC)</td>
+                <td>CC</td>
+                <td colspan="2">ML LAB <br> Room No: 511</td>
+                <td>WT</td>
+                <td>DM <br> (MOOC)</td>
+            </tr>
+            <tr>
+                <td  class="bold-class">TUE</td>
+                <td>ML <br><b>(705)</b></td>
+                <td>PA <br> (MOOC)</td>
+                <td colspan="2">DA LAB <br> Room No: 511</td>
+                <td>DAA</td>
+                <td>PA <br> (MOOC)</td>
+            </tr>
+            <tr>
+                <td class="bold-class">WED</td>
+                <td>CC <br><b>(706)</b></td>
+                <td>DM <br> (MOOC)</td>
+                <td colspan="2">CC LAB <br> Room No: 511</td>
+                <td>ML</td>
+                <td>LIB</td>
+            </tr>
+            <tr>
+                <td class="bold-class">THU</td>
+                <td>EMSME <br> (MOOC)</td>
+                <td>ML <br><b>(703)</b></td>
+                <td>DAA</td>
+                <td>WT</td>
+                <td>CC</td>
+                <td>PA <br>(MOOC)</td>
+            </tr>
+            <tr>
+                <td  class="bold-class">FRI</td>
+                <td>PA <br> (MOOC)</td>
+                <td>WT</td>
+                <td colspan="2">WT LAB <br> Room NO: 510</td>
+                <td>DAA</td>
+                <td>EMSME <br> (MOOC)</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
