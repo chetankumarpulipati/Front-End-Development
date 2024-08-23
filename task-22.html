@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <title>Event Invitation</title>
+    <style>
+        body {
+            display: flex;
+            margin: 100px;
+            background-color: rgb(175, 218, 255);
+            background-image: url('images/body-background.jpg');
+            background-repeat: no-repeat, repeat;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 50%;
+            background-color: rgb(134, 255, 104);
+            text-align: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        ul li {
+            display: block;
+            list-style: none;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        button {
+            background-color: rgb(255, 252, 103);
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            border-color: brown;
+        }
+    </style>
+    <script>
+        function saveUserDetails() {
+            let userInput = prompt('Enter your Name: ');
+            let userResponse = prompt('Are you interested to come to the event?');
+            let status = ""
+            const data = { name: userInput, Response: userResponse }
+            if (userInput === null || userInput === "") {
+                userInput = prompt('Invalid input Try again');
+            } else {
+                if (userResponse === "yes" || userResponse === "Yes") {
+                    status = "Yes"
+                    alert("You have confirmed " + status);
+                } else {
+                    status = "No"
+                    alert("You have an empty response which indicates", status);
+                }
+                saveDetailsToDb(userInput, userResponse).then(() => {
+                    alert("your response is stored");
+                });
+            }
+            console.log(JSON.stringify(data, null))
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Event Invitation</h1>
+        <p>You are cordially invited to our upcoming event.</p>
+
+        <h2>Event Details</h2>
+        <ul>
+            <li><strong>Date:</strong> 23-08-2024</li>
+            <li><strong>Time:</strong> 10:00 AM</li>
+            <li><strong>Location:</strong> Taj Tirupati</li>
+        </ul>
+
+        <p>Please RSVP by 20-08-2024 to confirm your arrival.</p>
+
+        <p>We look forward to seeing you there!</p>
+
+        <button onclick="saveUserDetails()">I'm Coming</button>
+    </div>
+</body>
+</html>
