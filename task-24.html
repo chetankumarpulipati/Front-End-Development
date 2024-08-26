@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interactive Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #questionContainer {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #question {
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #submitButton {
+            display: none;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Interactive Quiz</h1>
+    <form id="quizForm">
+        <div id="questionContainer">
+            <h2 id="question"></h2>
+            <input type="radio" name="answer" id="option1">
+            <label for="option1" id="option1Label"></label><br>
+            <input type="radio" name="answer" id="option2">
+            <label for="option2" id="option2Label"></label><br>
+            <input type="radio" name="answer" id="option3">
+            <label for="option3" id="option3Label"></label><br>
+            <input type="radio" name="answer" id="option4">
+            <label for="option4" id="option4Label"></label><br>
+        </div>
+        <button id="nextButton" type="button">Next</button>
+        <button id="submitButton" type="submit">Submit</button>
+    </form>
+
+    <script>
+        const quizData = [
+            {
+                question: "What is the capital of France?",
+                options: ["Berlin", "Paris", "London", "Rome"],
+                answer: 1
+            },
+            {
+                question: "Which planet is known as the Red Planet?",
+                options: ["Earth", "Mars", "Jupiter", "Saturn"],
+                answer: 1
+            },
+            {
+                question: "Who painted the Mona Lisa?",
+                options: ["Leonardo da Vinci", "Michelangelo", "Raphael", "Caravaggio"],
+                answer: 0
+            },
+            {
+                question: "What is the largest living species of lizard?",
+                options: ["Komodo dragon", "Saltwater crocodile", "Black mamba", "African elephant"],
+                answer: 0
+            },
+            {
+                question: "Which of the following is NOT a primary color?",
+                options: ["Red", "Blue", "Yellow", "Green"],
+                answer: 3
+            },
+            {
+                question: "Who is the author of the book 'To Kill a Mockingbird'?",
+                options: ["F. Scott Fitzgerald", "Harper Lee", "Jane Austen", "J.K. Rowling"],
+                answer: 1
+            },
+            {
+                question: "What is the chemical symbol for gold?",
+                options: ["Ag", "Au", "Hg", "Pb"],
+                answer: 1
+            },
+            {
+                question: "Which music group's original members were John, Paul, George, and Ringo?",
+                options: ["The Rolling Stones", "The Beatles", "The Who", "The Beach Boys"],
+                answer: 1
+            },
+            {
+                question: "What is the smallest country in the world?",
+                options: ["Vatican City", "Monaco", "Nauru", "Tuvalu"],
+                answer: 0
+            },
+            {
+                question: "Who is the main character in the novel 'The Catcher in the Rye'?",
+                options: ["Holden Caulfield", "Huckleberry Finn", "Tom Sawyer", "Scout Finch"],
+                answer: 0
+            }
+        ];
+        let currentQuestion = 0;
+        let userAnswers = [];
+
+        function loadQuestion() {
+            const questionElement = document.getElementById("question");
+            const option1Element = document.getElementById("option1Label");
+            const option2Element = document.getElementById("option2Label");
+            const option3Element = document.getElementById("option3Label");
+            const option4Element = document.getElementById("option4Label");
+
+            const currentQuizData = quizData[currentQuestion];
+
+            questionElement.innerText = currentQuizData.question;
+            option1Element.innerText = currentQuizData.options[0];
+            option2Element.innerText = currentQuizData.options[1];
+            option3Element.innerText = currentQuizData.options[2];
+            option4Element.innerText = currentQuizData.options[3];
+
+            document.querySelectorAll('input[name="answer"]').forEach((radio) => {
+                radio.checked = false;
+            });
+        }
+
+        function selectAnswer() {
+    const selectedOption = document.querySelector('input[name="answer"]:checked');
+    if (selectedOption) {
+        const answerIndex = parseInt(selectedOption.id.slice(-1)) - 1;
+
+        if (quizData && quizData[currentQuestion]) {
+            userAnswers[currentQuestion] = {
+                question: quizData[currentQuestion].question,
+                answer: answerIndex
+            };
+        } else {
+            console.error('quizData or currentQuestion is not properly initialized.');
+        }
+    }
+}
+
+        function showNextQuestion() {
+            selectAnswer();
+            currentQuestion++;
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                document.getElementById("questionContainer").style.display = "none";
+                document.getElementById("nextButton").style.display = "none";
+                document.getElementById("submitButton").style.display = "block";
+            }
+        }
+
+        document.getElementById("nextButton").addEventListener("click", showNextQuestion);
+        document.getElementById("quizForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            selectAnswer();
+            console.log(userAnswers);
+        });
+
+        loadQuestion();
+    </script>
+</body>
+
+</html>
