@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right, #ff9966, #ff5e62);
+            font-family: Arial, sans-serif;
+            margin-bottom: 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            padding: 20px;
+            margin-top: 0;
+        }
+
+        .calc {
+            width: 400px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 10px;
+            margin: 50px auto;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            margin-top: 0;
+        }
+
+        .screen {
+            font-size: 40px;
+            font-family: "Courier New", Courier, monospace;
+            text-align: right;
+            padding: 20px 10px;
+        }
+
+        .calc-button {
+            background-color: #444;
+            color: #fff;
+            height: 80px;
+            width: 23.5%;
+            border: none;
+            border-radius: 5px;
+            font-size: 30px;
+            cursor: pointer;
+            margin: 1%;
+            transition: background-color 0.3s;
+        }
+
+        .calc-button:hover {
+            background-color: #555;
+        }
+
+        .calc-button:active {
+            background-color: #333;
+        }
+
+        .double {
+            width: 48.5%;
+        }
+
+        .triple {
+            width: 73%;
+        }
+
+        .calc-button:last-child {
+            background-color: #f57c00;
+        }
+
+        .calc-button:last-child:hover {
+            background-color: #ff9800;
+        }
+
+        .calc-button:last-child:active {
+            background-color: #e65100;
+        }
+
+        .calc-button-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1%;
+        }
+
+        .calc-button-row:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Simple Calculator</h1>
+    <div class="calc">
+        <section class="screen">0</section>
+        <section class="calc-buttons">
+            <div class="calc-button-row">
+                <button class="calc-button double">C</button>
+                <button class="calc-button">←</button>
+                <button class="calc-button">÷</button>
+            </div>
+            <div class="calc-button-row">
+                <button class="calc-button">7</button>
+                <button class="calc-button">8</button>
+                <button class="calc-button">9</button>
+                <button class="calc-button">×</button>
+            </div>
+            <div class="calc-button-row">
+                <button class="calc-button">4</button>
+                <button class="calc-button">5</button>
+                <button class="calc-button">6</button>
+                <button class="calc-button">-</button>
+            </div>
+            <div class="calc-button-row">
+                <button class="calc-button">1</button>
+                <button class="calc-button">2</button>
+                <button class="calc-button">3</button>
+                <button class="calc-button">+</button>
+            </div>
+            <div class="calc-button-row">
+                <button class="calc-button triple">0</button>
+                <button class="calc-button">=</button>
+            </div>
+        </section>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let result = 0;
+            let currentInput = "0";
+            let previousOperator;
+            const display = document.querySelector(".screen");
+
+            function handleButtonClick(value) {
+                if (isNaN(parseInt(value))) {
+                    handleSymbol(value);
+                } else {
+                    handleNumber(value);
+                }
+                updateDisplay();
+            }
+
+            function handleNumber(value) {
+                if (currentInput === "0") {
+                    currentInput = value;
+                } else {
+                    currentInput += value;
+                }
+            }
+
+            function handleOperation(value) {
+                if (currentInput === "0") {
+                    return;
+                }
+
+                const inputValue = parseInt(currentInput);
+                if (result === 0) {
+                    result = inputValue;
+                } else {
+                    performOperation(inputValue);
+                }
+
+                previousOperator = value;
+
+                currentInput = "0";
+            }
+
+            function performOperation(inputValue) {
+                if (previousOperator === "+") {
+                    result += inputValue;
+                } else if (previousOperator === "-") {
+                    result -= inputValue;
+                } else if (previousOperator === "×") {
+                    result *= inputValue;
+                } else {
+                    result /= inputValue;
+                }
+            }
+
+            function handleSymbol(value) {
+                switch (value) {
+                    case "C":
+                        currentInput = "0";
+                        result = 0;
+                        break;
+                    case "=":
+                        if (previousOperator === null) {
+                            return;
+                        }
+                        performOperation(parseInt(currentInput));
+                        previousOperator = null;
+                        currentInput = "" + result;
+                        result = 0;
+                        break;
+                    case "←":
+                        if (currentInput.length === 1) {
+                            currentInput = "0";
+                        } else {
+                            currentInput = currentInput.substring(0, currentInput.length - 1);
+                        }
+                        break;
+                    case "+":
+                    case "-":
+                    case "×":
+                    case "÷":
+                        handleOperation(value);
+                        break;
+                }
+            }
+
+            function updateDisplay() {
+                display.innerText = currentInput;
+            }
+
+            function initializeCalculator() {
+                document
+                    .querySelector(".calc-buttons")
+                    .addEventListener("click", function (event) {
+                        handleButtonClick(event.target.innerText);
+                    });
+            }
+
+            initializeCalculator();
+        });
+    </script>
+</body>
+
+</html>

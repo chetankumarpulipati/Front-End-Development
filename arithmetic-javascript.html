@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arithmetic Operations</title>
+  <script>
+    function add(){
+      var number1 = document.getElementById("number1").value;
+      var number2 = document.getElementById("number2").value;
+      var result = parseInt(number1) + parseInt(number2);
+      document.getElementById("result").value = result;
+      var history = document.getElementById("history");
+      var listItem = document.createElement("li");
+      listItem.textContent = result;
+      history.appendChild(listItem);
+    }
+    function subtract(){
+      var number1 = document.getElementById("number1").value;
+      var number2 = document.getElementById("number2").value;
+      var result = parseInt(number1) - parseInt(number2);
+      document.getElementById("result").value = result;
+      var history = document.getElementById("history");
+      var listItem = document.createElement("li");
+      listItem.textContent = result;
+      history.appendChild(listItem);
+    }
+    function multiply(){
+      var number1 = document.getElementById("number1").value;
+      var number2 = document.getElementById("number2").value;
+      var result = parseInt(number1) * parseInt(number2);
+      document.getElementById("result").value = result;
+      var history = document.getElementById("history");
+      var listItem = document.createElement("li");
+      listItem.textContent = result;
+      history.appendChild(listItem);
+    }
+    function divide(){
+      var number1 = document.getElementById("number1").value;
+      var number2 = document.getElementById("number2").value;
+      var result = parseInt(number1) / parseInt(number2);
+      document.getElementById("result").value = result;
+      var history = document.getElementById("history");
+      var listItem = document.createElement("li");
+      listItem.textContent = result;
+      history.appendChild(listItem);
+    }
+  </script>
+</head>
+<body>
+  <h1>Arithmetic Operations</h1>
+  <input id="number1" type="number" placeholder="Enter Number 1">
+  <br>
+  <input id="number2" type="number" placeholder="Enter Number 2">
+  <br>
+  <button onclick="add()">Add</button>
+  <button onclick="subtract()">Subtract</button>
+  <button onclick="multiply()">Multiply</button>
+  <button onclick="divide()">Divide</button>
+  <br>
+  <input id="result" type="number" disabled>
+  <h2>History</h2>
+  <ul id="history"></ul>  
+</body>
+</html>
