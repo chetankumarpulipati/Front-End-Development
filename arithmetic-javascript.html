@@ -5,41 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arithmetic Operations</title>
   <script>
-    function add(){
-      var number1 = document.getElementById("number1").value;
-      var number2 = document.getElementById("number2").value;
-      var result = parseInt(number1) + parseInt(number2);
+    function calculate(operation) {
+      var number1 = parseFloat(document.getElementById("number1").value);
+      var number2 = parseFloat(document.getElementById("number2").value);
+      var result;
+
+      switch (operation) {
+        case 'add':
+          result = number1 + number2;
+          break;
+        case 'subtract':
+          result = number1 - number2;
+          break;
+        case 'multiply':
+          result = number1 * number2;
+          break;
+        case 'divide':
+          result = number1 / number2;
+          break;
+      }
+
       document.getElementById("result").value = result;
-      var history = document.getElementById("history");
-      var listItem = document.createElement("li");
-      listItem.textContent = result;
-      history.appendChild(listItem);
-    }
-    function subtract(){
-      var number1 = document.getElementById("number1").value;
-      var number2 = document.getElementById("number2").value;
-      var result = parseInt(number1) - parseInt(number2);
-      document.getElementById("result").value = result;
-      var history = document.getElementById("history");
-      var listItem = document.createElement("li");
-      listItem.textContent = result;
-      history.appendChild(listItem);
-    }
-    function multiply(){
-      var number1 = document.getElementById("number1").value;
-      var number2 = document.getElementById("number2").value;
-      var result = parseInt(number1) * parseInt(number2);
-      document.getElementById("result").value = result;
-      var history = document.getElementById("history");
-      var listItem = document.createElement("li");
-      listItem.textContent = result;
-      history.appendChild(listItem);
-    }
-    function divide(){
-      var number1 = document.getElementById("number1").value;
-      var number2 = document.getElementById("number2").value;
-      var result = parseInt(number1) / parseInt(number2);
-      document.getElementById("result").value = result;
+
       var history = document.getElementById("history");
       var listItem = document.createElement("li");
       listItem.textContent = result;
@@ -53,10 +40,10 @@
   <br>
   <input id="number2" type="number" placeholder="Enter Number 2">
   <br>
-  <button onclick="add()">Add</button>
-  <button onclick="subtract()">Subtract</button>
-  <button onclick="multiply()">Multiply</button>
-  <button onclick="divide()">Divide</button>
+  <button onclick="calculate('add')">Add</button>
+  <button onclick="calculate('subtract')">Subtract</button>
+  <button onclick="calculate('multiply')">Multiply</button>
+  <button onclick="calculate('divide')">Divide</button>
   <br>
   <input id="result" type="number" disabled>
   <h2>History</h2>
