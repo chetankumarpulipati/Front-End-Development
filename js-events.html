@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Event Types in JavaScript</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      transition: width 2s, height 2s, transform 2s;
+    }
+    #box:hover {
+      width: 200px;
+      height: 200px;
+      transform: rotate(45deg);
+    }
+    @keyframes example {
+      0%   {background-color: red; left: 0;}
+      100% {background-color: yellow; left: 300px;}
+    }
+    #animate {
+      width: 100px;
+      height: 100px;
+      position: relative;
+      animation: example 2s infinite;
+    }
+    #touchArea, #pointerArea, #dragTarget, #mouseButton {
+      margin-top: 20px;
+      width: 300px;
+      height: 100px;
+      background-color: lightgrey;
+      line-height: 100px;
+      text-align: center;
+    }
+    #dragTarget {
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+
+<h1>JavaScript Event Handling Examples</h1>
+
+<h2>1. Transition Events</h2>
+<div id="box"></div>
+<p id="transitionStatus"></p>
+
+<h2>2. Animation Events</h2>
+<div id="animate"></div>
+<p id="animationStatus"></p>
+
+<h2>3. Touch Events</h2>
+<div id="touchArea">Touch Area</div>
+<p id="touchStatus"></p>
+
+<h2>4. Pointer Events</h2>
+<div id="pointerArea">Pointer Area</div>
+<p id="pointerStatus"></p>
+
+<h2>5. Drag and Drop Events</h2>
+<div id="dragTarget" draggable="true">Drag Me</div>
+<p id="dragStatus"></p>
+
+<h2>6. Media Events</h2>
+<video id="myVideo" width="320" height="240" controls>
+  <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+</video>
+<p id="mediaStatus"></p>
+
+<h2>7. Document/Window Events</h2>
+<p id="windowStatus">Resize the window or scroll the page</p>
+
+<h2>8. Form Events</h2>
+<form id="myForm">
+  <input type="text" id="textInput" placeholder="Enter text">
+  <input type="submit" value="Submit">
+</form>
+<p id="formStatus"></p>
+
+<h2>9. Keyboard Events</h2>
+<p>Press any key:</p>
+<p id="keyStatus"></p>
+
+<h2>10. Mouse Events</h2>
+<button id="mouseButton">Click or hover me!</button>
+<p id="mouseStatus"></p>
+
+<script>
+  const box = document.getElementById('box');
+  const transitionStatus = document.getElementById('transitionStatus');
+  box.addEventListener('transitionend', (event) => {
+    transitionStatus.innerText = `Transition ended for ${event.propertyName}`;
+  });
+  const animatedBox = document.getElementById('animate');
+  const animationStatus = document.getElementById('animationStatus');
+  animatedBox.addEventListener('animationstart', () => {
+    animationStatus.innerText = "Animation started!";
+  });
+  animatedBox.addEventListener('animationiteration', () => {
+    animationStatus.innerText = "Animation iteration occurred!";
+  });
+  animatedBox.addEventListener('animationend', () => {
+    animationStatus.innerText = "Animation ended!";
+  });
+  const touchArea = document.getElementById('touchArea');
+  const touchStatus = document.getElementById('touchStatus');
+  touchArea.addEventListener('touchstart', () => {
+    touchStatus.innerText = "Touch started!";
+  });
+  touchArea.addEventListener('touchmove', () => {
+    touchStatus.innerText = "Touch is moving!";
+  });
+  touchArea.addEventListener('touchend', () => {
+    touchStatus.innerText = "Touch ended!";
+  });
+  const pointerArea = document.getElementById('pointerArea');
+  const pointerStatus = document.getElementById('pointerStatus');
+  pointerArea.addEventListener('pointerenter', () => {
+    pointerStatus.innerText = "Pointer entered!";
+  });
+  pointerArea.addEventListener('pointermove', () => {
+    pointerStatus.innerText = "Pointer is moving!";
+  });
+  pointerArea.addEventListener('pointerleave', () => {
+    pointerStatus.innerText = "Pointer left!";
+  });
+  const dragTarget = document.getElementById('dragTarget');
+  const dragStatus = document.getElementById('dragStatus');
+  dragTarget.addEventListener('dragstart', () => {
+    dragStatus.innerText = "Drag started!";
+  });
+  dragTarget.addEventListener('dragend', () => {
+    dragStatus.innerText = "Drag ended!";
+  });
+  const video = document.getElementById('myVideo');
+  const mediaStatus = document.getElementById('mediaStatus');
+  video.addEventListener('play', () => {
+    mediaStatus.innerText = "Video started playing!";
+  });
+  video.addEventListener('pause', () => {
+    mediaStatus.innerText = "Video paused!";
+  });
+  video.addEventListener('ended', () => {
+    mediaStatus.innerText = "Video ended!";
+  });
+  const windowStatus = document.getElementById('windowStatus');
+  window.addEventListener('resize', () => {
+    windowStatus.innerText = "Window resized!";
+  });
+  window.addEventListener('scroll', () => {
+    windowStatus.innerText = "Page scrolled!";
+  });
+  const form = document.getElementById('myForm');
+  const textInput = document.getElementById('textInput');
+  const formStatus = document.getElementById('formStatus');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    formStatus.innerText = `Form submitted with text: ${textInput.value}`;
+  });
+  textInput.addEventListener('focus', () => {
+    formStatus.innerText = "Input focused!";
+  });
+  textInput.addEventListener('blur', () => {
+    formStatus.innerText = "Input lost focus!";
+  });
+  const keyStatus = document.getElementById('keyStatus');
+  window.addEventListener('keydown', (event) => {
+    keyStatus.innerText = `Key down: ${event.key}`;
+  });
+  window.addEventListener('keyup', (event) => {
+    keyStatus.innerText = `Key up: ${event.key}`;
+  });
+  const mouseButton = document.getElementById('mouseButton');
+  const mouseStatus = document.getElementById('mouseStatus');
+  mouseButton.addEventListener('click', () => {
+    mouseStatus.innerText = "Button clicked!";
+  });
+  mouseButton.addEventListener('mouseover', () => {
+    mouseStatus.innerText = "Mouse over button!";
+  });
+  mouseButton.addEventListener('mouseout', () => {
+    mouseStatus.innerText = "Mouse left button!";
+  });
+</script>
+</body>
+</html>
