@@ -1,0 +1,46 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Implementation</title>
+    <script>
+
+    </script>
+    <style>
+        p[data-status] .status:after {
+            content: attr(data-status);
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hello, World!</h1>
+        <p>This is a basic Bootstrap container.</p>
+        <p>This is a new container</p>
+        <h1>Button using Bootstrap</h1>
+        <button class="btn btn-primary btn-lg">Primary Button</button>
+        <button class="btn btn-secondary btn-xs">Secondary Button</button>
+        <h1 class="jumbotron display-4">Example</h1>
+        <div class="jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-2">Fluid jumbotron</h1>
+                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.
+                </p>
+            </div>
+        </div>
+        <div class="alert alert-primary container" role="alert">
+            This is a primary alert—check it out!
+        </div>
+        <div class="alert alert-secondary container" role="alert">
+            This is a secondary alert—check it out!
+        </div>
+        <div class="alert bg-success " role="alert">
+            Test
+        </div>
+    </div>
+</body>
+</html>
